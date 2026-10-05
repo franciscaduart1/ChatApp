@@ -21,7 +21,7 @@ const chats = [
     nombre: "Juan",
     telefono: "11 1234-5678",
     imagen: juan,
-    ultimoMensaje: "Hola, ¿cómo estás?",
+    ultimoMensaje: "Bien también 😊",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const chats = [
     nombre: "María",
     telefono: "11 1234-5678",
     imagen: maria,
-    ultimoMensaje: "Nos vemos mañana",
+    ultimoMensaje: "✓✓ Sí, te lo paso después.",
   },
 
   {
@@ -52,7 +52,7 @@ const chats = [
     nombre: "Lucía",
     telefono: "11 1234-5678",
     imagen: lucia,
-    ultimoMensaje: "¿Terminaste el trabajo?",
+    ultimoMensaje: "✓✓ Estoy terminándolo.",
   },
 
   {
@@ -64,9 +64,9 @@ const chats = [
       { nombre: "Coti", imagen: coti },
       { nombre: "Pedro", imagen: pedro }
     ],
-    ultimoRemitente: "Lola",
+    ultimoRemitente: "Coti",
     imagen: utn,
-    ultimoMensaje: "¿Como viene con el tp?"
+    ultimoMensaje: "Yo todavía estoy con la parte de React."
   }
 
 
