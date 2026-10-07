@@ -38,6 +38,30 @@ const messages = {
   3: [
     {
       id: 1,
+      autor: "Sole",
+      texto: "Holaa flia, como estan?",
+      tipo: "received",
+      hora: "14:20"
+    },
+    {
+      id: 2,
+      autor: "Mama",
+      texto: "Bien, terminando de almorzar",
+      tipo: "received",
+      hora: "14:25"
+    },
+    {
+      id: 3,
+      autor: "Tia Vicky",
+      texto: "¿Como salio el asado?",
+      tipo: "received",
+      hora: "14:28"
+    }
+  ],
+   
+   4: [
+    {
+      id: 1,
       texto: "¿Terminaste el trabajo?",
       tipo: "received",
       hora: "10:30"
@@ -50,7 +74,7 @@ const messages = {
     },
   ],
 
-  4: [
+  5: [
     {
       id: 1,
       autor: "Pedro",
@@ -72,31 +96,8 @@ const messages = {
       tipo: "received",
       hora: "14:28"
     }
-  ],
-
-  5: [
-    {
-      id: 1,
-      autor: "Sole",
-      texto: "Holaa flia, como estan?",
-      tipo: "received",
-      hora: "14:20"
-    },
-    {
-      id: 2,
-      autor: "Mama",
-      texto: "Bien, terminando de almorzar",
-      tipo: "received",
-      hora: "14:25"
-    },
-    {
-      id: 3,
-      autor: "Tia Vicky",
-      texto: "¿Como salio el asado?",
-      tipo: "received",
-      hora: "14:28"
-    }
   ]
+ 
 };
 
 export default messages;

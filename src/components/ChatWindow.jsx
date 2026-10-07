@@ -2,6 +2,9 @@ import { useState } from "react";
 import messages from "../data/messages";
 import useUser from "../hooks/useUser";
 import ContactInfo from "../pages/ContactInfo";
+import ChatHeader from "./ChatHeader";
+import MessageList from "./MessageList";
+import MessageForm from "./MessageForm";
 
 function ChatWindow({ chatSeleccionado, setChatSeleccionado }) {
   const usuario = useUser();
@@ -53,66 +56,23 @@ function ChatWindow({ chatSeleccionado, setChatSeleccionado }) {
               setMostrarInfo={setMostrarInfo} />
           ) : (
             <>
-              <header className="chat-header">
+              <ChatHeader
+  chatSeleccionado={chatSeleccionado}
+  usuario={usuario}
+  setMostrarInfo={setMostrarInfo}
+  setChatSeleccionado={setChatSeleccionado}
+/>
 
-                <button
-                  className="back-button"
-                  onClick={() => setChatSeleccionado(null)}
-                >
-                  ←
-                </button>
+              <MessageList
+  mensajesDelChat={mensajesDelChat}
+  chatSeleccionado={chatSeleccionado}
+/>
 
-
-                <img className="chat-avatar" src={chatSeleccionado.imagen} alt={`Foto de ${chatSeleccionado.nombre}`}
-                />
-
-                <div>
-                  <h2 onClick={() => setMostrarInfo(true)}>
-                    {chatSeleccionado ? chatSeleccionado.nombre : "selecciona un chat"}</h2>
-                  <p>   {chatSeleccionado?.tipo === "grupo"
-                    ? chatSeleccionado.integrantes
-                      .map((integrante) => integrante.nombre)
-                      .join(", ")
-                    : usuario.estado}
-                  </p>
-                </div>
-              </header>
-
-              <section className="messages">
-
-
-                {mensajesDelChat.map((mensaje) => (
-                  <div className={`message ${mensaje.tipo}`} key={mensaje.id}>
-
-                    {chatSeleccionado.tipo === "grupo" && mensaje.tipo === "received" && (
-                      <strong className={`message-author ${mensaje.autor.toLowerCase()}`}>{mensaje.autor}</strong>
-                    )}
-
-                    <p>{mensaje.texto}</p>
-
-                    <span className="message-time">
-                      {mensaje.hora}
-                      {mensaje.tipo === "sent" ? "✓✓" : ""}
-                    </span>
-                  </div>
-                ))}
-
-
-              </section>
-
-              <form className="message-form" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  value={mensaje}
-                  placeholder="Escribí un mensaje"
-                  onChange={(event) => setMensaje(event.target.value)}
-
-                />
-
-                <button type="submit">
-                  Enviar
-                </button>
-              </form>
+              <MessageForm
+  mensaje={mensaje}
+  setMensaje={setMensaje}
+  handleSubmit={handleSubmit}
+/>
             </>
           )}
         </>

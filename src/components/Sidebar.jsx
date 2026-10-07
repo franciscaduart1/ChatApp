@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useNavigate } from "react-router-dom"
 import chats from "../data/chats";
 
 function Sidebar({ setChatSeleccionado }) {
     const [buscador, setBuscador] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
     function handleBuscar(event) {
         const valor = event.target.value;
 
@@ -39,7 +40,7 @@ function Sidebar({ setChatSeleccionado }) {
                     <p>No se encontraron chats</p>
                 ) : (
                     chatsFiltrados.map((chat) => (
-                        <div className="chat-item" key={chat.id} onClick={() => { setChatSeleccionado(chat); }}>
+                        <div className="chat-item" key={chat.id} onClick={() => { setChatSeleccionado (chat); navigate(`/chat/${chat.id}`)}}>
                             <img className="chat-avatar" src={chat.imagen} alt={`Foto de ${chat.nombre}`}>
                             </img>
 

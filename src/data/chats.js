@@ -33,7 +33,7 @@ const chats = [
   },
 
   {
-    id: 5,
+    id: 3,
     tipo: "grupo",
     nombre: "Familia",
     integrantes: [{ nombre: "Mama", imagen: mama },
@@ -47,7 +47,7 @@ const chats = [
   },
 
   {
-    id: 3,
+    id: 4,
     tipo: "contacto",
     nombre: "Lucía",
     telefono: "11 1234-5678",
@@ -56,7 +56,7 @@ const chats = [
   },
 
   {
-    id: 4,
+    id: 5,
     tipo: "grupo",
     nombre: "Curso UTN-programación",
     integrantes: [

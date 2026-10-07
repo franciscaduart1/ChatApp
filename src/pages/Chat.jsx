@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import chats from "../data/chats";
-import messages from "../data/messages";
+import Sidebar from "../components/Sidebar";
+import ChatWindow from "../components/ChatWindow";
 
 function Chat() {
   const { chatId } = useParams();
+
   const chat = chats.find((chat) => chat.id === Number(chatId));
-  const mensajesDelChat = messages[chatId];
+
+  const [chatSeleccionado, setChatSeleccionado] = useState(chat);
 
   if (!chat) {
     return (
@@ -15,17 +19,15 @@ function Chat() {
       </div>
     );
   }
-  
-  return (
-    <div>
-      <h1>Conversación</h1>
-      <p>Chat seleccionado: {chat.nombre}</p>
 
-      {mensajesDelChat.map((mensaje) => (
-        <p key={mensaje.id}>
-          {mensaje.texto}
-        </p>
-      ))}
+  return (
+    <div className={`chat-app ${chatSeleccionado ? "chat-abierto" : ""}`}>
+      <Sidebar setChatSeleccionado={setChatSeleccionado} />
+
+      <ChatWindow
+        chatSeleccionado={chatSeleccionado}
+        setChatSeleccionado={setChatSeleccionado}
+      />
     </div>
   );
 }
